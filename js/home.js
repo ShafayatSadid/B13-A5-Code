@@ -55,15 +55,7 @@ const displayAll = (cards) => {
                     </div>
 
                     <!-- labels -->
-                    <div class="flex items-center gap-2">
-                        <button
-                            class="text-[0.75rem] flex items-center gap-1 text-[#EF4444] p-[5px] rounded-[100px] bg-[#FEECEC]"><img
-                                class="w-3 h-3" src="./assets/bug.png" alt="">bug</button>
-
-                        <button
-                            class="text-[0.75rem] flex items-center gap-1 text-[#D97706] p-[5px] rounded-[100px] bg-[#FFF8DB]"><img
-                                class="w-3 h-3" src="./assets/help.png" alt=""> HELP WANTED</button>
-                    </div>
+                    <div class="flex items-center gap-2">${displayLabel(card.labels)} </div>
 
                     <!-- author -->
                     <div class="p-4 border-t border-[#E4E4E7]">
