@@ -43,12 +43,12 @@
             <fieldset class="fieldset border-none max-w-[456px] w-full border p-4 mx-auto">
 
                 <label class="label text-[1rem] font-medium text-[#1F2937] mb-2">Username</label>
-                <input type="email" class="input w-full mb-4" placeholder="Enter Username" />
+                <input type="email" id="username" class="input w-full mb-4" placeholder="Enter Username" />
 
                 <label class="label text-[1rem] font-medium text-[#1F2937] mb-2">Password</label>
-                <input type="password" class="input w-full mb-6" placeholder="Enter Password" />
+                <input type="password" id="password" class="input w-full mb-6" placeholder="Enter Password" />
 
-                <button class="btn btn-primary mb-6">Sign in</button>
+                <button id="signIn" class="btn btn-primary mb-6">Sign in</button>
 
                 <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 my-4">
                     <div class="border-t border-[#E4E4E7]"></div>
@@ -57,10 +57,14 @@
                 </div>
             </fieldset>
 
-            
+
         </section>
 
     </main>
+
+    <!-- js file -->
+    <script src="./js/machine.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 
 </html>
