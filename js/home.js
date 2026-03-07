@@ -6,8 +6,13 @@ const loadAll = () => {
     const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
     fetch(url)
         .then(response => response.json())
-        .then(cards => displayAll(cards.data))
+        .then(cards => {
+            displayAll(cards.data);
+            displayOpen(cards.data);
+            displayClosed(cards.data);
+        })
 }
+
 
 loadAll()
 
@@ -29,7 +34,7 @@ const displayAll = (cards) => {
     cards.forEach(card => {
         // console.log(card)
 
-        
+
         // create element and added innerHTMl
         // append child
 
@@ -37,13 +42,15 @@ const displayAll = (cards) => {
 
         // call priority design function.
         const priorityData = getPriority(card.priority.toUpperCase())
+        // each card border style based status
+        const border = getBorder(card.status)
 
         allCard.innerHTML = `
-        <div class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3">
+        <div class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
 
                     <!-- status and priority -->
                     <div class="flex justify-between">
-                        <div>${card.status == 'open' ?'<img class="w-6 h-6" src="./assets/Open-Status.png" alt="">': '<img class="w-6 h-6" src="./assets/Closed- Status .png" alt="">'} </div>
+                        <div>${card.status == 'open' ? '<img class="w-6 h-6" src="./assets/Open-Status.png" alt="">' : '<img class="w-6 h-6" src="./assets/Closed- Status .png" alt="">'} </div>
                         <button id=""
                             class="priority-btn text-[0.75rem] ${priorityData.textColor} w-[80px] py-[5px] rounded-[100px] ${priorityData.bgColor}">${priorityData.text} </button>
                     </div>
@@ -55,7 +62,7 @@ const displayAll = (cards) => {
                     </div>
 
                     <!-- labels -->
-                    <div class="flex items-center gap-2">${displayLabel(card.labels)} </div>
+                    <div class="flex items-center gap-2">${displayLabel(card.labels)}</div>
 
                     <!-- author -->
                     <div class="p-4 border-t border-[#E4E4E7]">
@@ -69,6 +76,143 @@ const displayAll = (cards) => {
         `
 
         allSection.appendChild(allCard)
-        
+
     });
 }
+
+
+// display Open card
+const displayOpen = (cards) => {
+
+    const openCards = cards.filter(card => card.status === 'open');
+
+    console.log(openCards.length)
+    // declare open issue count
+    const openIssueCount = document.getElementById('open-issue');
+    const openCount = openCards.length;
+    openIssueCount.innerText = openCount;
+
+
+    // get parent and empty
+    const openSection = document.getElementById('open-section');
+    openSection.innerHTML = "";
+
+    openCards.forEach(card => {
+        // console.log(card)
+
+
+        // create element and added innerHTMl
+        // append child
+
+        const openCard = document.createElement('div');
+
+        // call priority design function.
+        const priorityData = getPriority(card.priority.toUpperCase())
+        // each card border style based status
+        const border = getBorder(card.status)
+
+        openCard.innerHTML = `
+        <div class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
+
+                    <!-- status and priority -->
+                    <div class="flex justify-between">
+                        <div>${card.status == 'open' ? '<img class="w-6 h-6" src="./assets/Open-Status.png" alt="">' : '<img class="w-6 h-6" src="./assets/Closed- Status .png" alt="">'} </div>
+                        <button id=""
+                            class="priority-btn text-[0.75rem] ${priorityData.textColor} w-[80px] py-[5px] rounded-[100px] ${priorityData.bgColor}">${priorityData.text} </button>
+                    </div>
+
+                    <!-- title -->
+                    <div class="space-y-2">
+                        <h4 class="text-[0.875rem] font-semibold text-[#1F2937]">${card.title}</h4>
+                        <p class="text-[0.75rem] text-[#64748B]">${card.description}</p>
+                    </div>
+
+                    <!-- labels -->
+                    <div class="flex items-center gap-2">${displayLabel(card.labels)}</div>
+
+                    <!-- author -->
+                    <div class="p-4 border-t border-[#E4E4E7]">
+
+                        <div>
+                            <p class="text-[0.75rem] text-[#64748B]">#${card.id} ${card.author} </p>
+                            <p class="text-[0.75rem] text-[#64748B]">${card.createdAt} </p>
+                        </div>
+                    </div>
+                </div>
+        `
+
+        openSection.appendChild(openCard)
+
+    });
+    
+}
+
+
+// display Closed card
+const displayClosed = (cards) => {
+
+    const closedCards = cards.filter(card => card.status === 'closed');
+
+    console.log(closedCards.length)
+    // declare open issue count
+    const closedIssueCount = document.getElementById('closed-issue');
+    const closedCount = closedCards.length;
+    closedIssueCount.innerText = closedCount;
+
+
+    // get parent and empty
+    const closedSection = document.getElementById('closed-section');
+    closedSection.innerHTML = "";
+
+    closedCards.forEach(card => {
+        // console.log(card)
+
+
+        // create element and added innerHTMl
+        // append child
+
+        const closedCard = document.createElement('div');
+
+        // call priority design function.
+        const priorityData = getPriority(card.priority.toUpperCase())
+        // each card border style based status
+        const border = getBorder(card.status)
+
+        closedCard.innerHTML = `
+        <div class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
+
+                    <!-- status and priority -->
+                    <div class="flex justify-between">
+                        <div>${card.status == 'open' ? '<img class="w-6 h-6" src="./assets/Open-Status.png" alt="">' : '<img class="w-6 h-6" src="./assets/Closed- Status .png" alt="">'} </div>
+                        <button id=""
+                            class="priority-btn text-[0.75rem] ${priorityData.textColor} w-[80px] py-[5px] rounded-[100px] ${priorityData.bgColor}">${priorityData.text} </button>
+                    </div>
+
+                    <!-- title -->
+                    <div class="space-y-2">
+                        <h4 class="text-[0.875rem] font-semibold text-[#1F2937]">${card.title}</h4>
+                        <p class="text-[0.75rem] text-[#64748B]">${card.description}</p>
+                    </div>
+
+                    <!-- labels -->
+                    <div class="flex items-center gap-2">${displayLabel(card.labels)}</div>
+
+                    <!-- author -->
+                    <div class="p-4 border-t border-[#E4E4E7]">
+
+                        <div>
+                            <p class="text-[0.75rem] text-[#64748B]">#${card.id} ${card.author} </p>
+                            <p class="text-[0.75rem] text-[#64748B]">${card.createdAt} </p>
+                        </div>
+                    </div>
+                </div>
+        `
+
+        closedSection.appendChild(closedCard)
+
+    });
+    
+}
+
+
+

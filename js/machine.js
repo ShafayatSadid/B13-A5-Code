@@ -38,14 +38,6 @@ function getPriority(priority) {
 
 
 // display labels
-function displayLabels(labels) {
-
-    const createBtn = labels.map(label => `<button
-        class="text-[0.75rem] flex items-center gap-1 text-[#D97706] p-[5px] rounded-[100px] bg-[#FFF8DB]">${label} </button>`)
-
-    return createBtn.join(" ")
-}
-
 function displayLabel(labels) {
 
     const createBtn = labels.map(label => {
@@ -72,4 +64,31 @@ function displayLabel(labels) {
     })
 
     return createBtn.join(" ")
+}
+
+
+// open card and closed card border style
+function getBorder(status){
+
+    if(status === 'open'){
+        return 'border-t-4 border-[#00A96E]'
+    }
+    else{
+        return 'border-t-4 border-[#A855F7]'
+    }
+}
+
+
+// tab btn controller
+function tab (id){
+
+    
+    // get all tab btn
+    const allTab = document.querySelectorAll('.tab-btn')
+
+    // remove active class form all
+    allTab.forEach(tab => tab.classList.remove('active'));
+
+    // add active class selected btn
+    document.getElementById(id).classList.add('active')
 }
