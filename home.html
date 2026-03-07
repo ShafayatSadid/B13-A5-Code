@@ -68,7 +68,11 @@
                 <div class="flex items-center gap-2">
                     <div><img src="./assets/Aperture.png" alt=""></div>
                     <div>
-                        <h2 class="text-[1.125rem] font-semibold text-[#1F2937]"><span id="all-issue" class="hidden"></span><span id="open-issue" class="hidden"></span><span id="closed-issue" class=""></span> Issues</h2>
+                        <h2 class="text-[1.125rem] font-semibold text-[#1F2937]">
+                            <span id="all-issue" class="issue-count"></span>
+                            <span id="open-issue" class="issue-count hidden"></span>
+                            <span id="closed-issue" class="issue-count hidden"></span> Issues</h2>
+                            
                         <p class="text-[1rem] text-[#64748B]">Track and manage your project issues</p>
                     </div>
                 </div>
@@ -90,7 +94,7 @@
 
             <!-- issue card -->
             <!-- All section -->
-            <section id="all-section" class="bg-[#FBFBFB] p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 hidden">
+            <section id="all-section" class="issue-section bg-[#FBFBFB] p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
 
                 <!-- card -->
                 <div class="card w-[256px] p-4 shadow-sm space-y-3">
@@ -136,11 +140,11 @@
 
             <!-- issue card -->
             <!-- Open section -->
-            <section id="open-section" class="bg-[#FBFBFB] p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 hidden"></section>
+            <section id="open-section" class="issue-section bg-[#FBFBFB] p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 hidden"></section>
 
             <!-- issue card -->
             <!-- Closed section -->
-            <section id="closed-section" class="bg-[#FBFBFB] p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3"></section>
+            <section id="closed-section" class="issue-section bg-[#FBFBFB] p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 hidden"></section>
         </section>
 
 

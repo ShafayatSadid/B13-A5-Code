@@ -91,4 +91,28 @@ function tab (id){
 
     // add active class selected btn
     document.getElementById(id).classList.add('active')
+
+
+    // section and issue count controller 
+
+    // get all issue section and issue count
+    const allIssues = document.querySelectorAll('.issue-section');
+    const allCounts = document.querySelectorAll('.issue-count')
+
+    // add hidden class at all
+    allIssues.forEach(issue => issue.classList.add('hidden'));
+    allCounts.forEach(count => count.classList.add('hidden'));
+
+    if(id === 'tab1'){
+        document.getElementById('all-section').classList.remove('hidden');
+        document.getElementById('all-issue').classList.remove('hidden');
+    }
+    else if(id === 'tab2'){
+        document.getElementById('open-section').classList.remove('hidden');
+        document.getElementById('open-issue').classList.remove('hidden');
+    }
+    else{
+        document.getElementById('closed-section').classList.remove('hidden');
+        document.getElementById('closed-issue').classList.remove('hidden');
+    }
 }
