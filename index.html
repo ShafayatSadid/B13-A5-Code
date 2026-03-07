@@ -9,10 +9,58 @@
     <!-- daisyUI and Tailwind cdn -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css connection -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body class="max-w-[520px] w-full mx-auto my-[78px] shadow-md p-8 rounded-lg">
 
+    <!-- header -->
+    <header class="text-center">
+        <div class="logo">
+            <img class="w-[100px] mx-auto" src="./assets/github-logo.png" alt="">
+        </div>
+        <h2 class="text-[1.5rem] font-semibold text-[#1F2937] mt-6">GitHub Issues Tracker</h2>
+        <p class="text-[1rem] text-[#64748B]">Sign in to manage your issues</p>
+    </header>
+
+    <!-- main -->
+    <main>
+
+        <!-- input section -->
+        <section class="mt-6 pb-10">
+            <fieldset class="fieldset border-none max-w-[456px] w-full border p-4 mx-auto">
+
+                <label class="label text-[1rem] font-medium text-[#1F2937] mb-2">Username</label>
+                <input type="email" class="input w-full mb-4" placeholder="Enter Username" />
+
+                <label class="label text-[1rem] font-medium text-[#1F2937] mb-2">Password</label>
+                <input type="password" class="input w-full mb-6" placeholder="Enter Password" />
+
+                <button class="btn btn-primary mb-6">Sign in</button>
+
+                <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 my-5">
+                    <div class="border-t border-[#E4E4E7]"></div>
+                    <p class="text-[1rem] text-[#1F2937]">OR</p>
+                    <div class="border-t border-[#E4E4E7]"></div>
+                </div>
+            </fieldset>
+
+            
+        </section>
+
+    </main>
 </body>
 
 </html>
