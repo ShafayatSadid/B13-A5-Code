@@ -34,7 +34,7 @@ loadAll()
 
 const displayAll = (cards) => {
 
-    
+
 
     console.log(cards.length)
     // declare all issue count
@@ -95,6 +95,29 @@ const displayAll = (cards) => {
 
 
     });
+}
+
+
+// search function
+const search = () => {
+
+    const searchValue = getValue('search-input').trim().toLowerCase();
+    console.log(searchValue)
+
+    // all word fetch
+    const url = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
+    fetch(url)
+        .then(response => response.json())
+        .then(words => {
+            
+            const cards = words.data;
+            
+
+            const searchCard = cards.filter(card => card.title.toLowerCase().includes(searchValue));
+            console.log(searchCard)
+
+            displayAll(searchCard);
+        })
 }
 
 
