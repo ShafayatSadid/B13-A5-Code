@@ -11,6 +11,8 @@ const spinner = (status) => {
     }
 }
 
+// call spinner
+spinner(true);
 
 // load all card
 const loadAll = () => {
@@ -32,8 +34,7 @@ loadAll()
 
 const displayAll = (cards) => {
 
-    // call spinner
-    spinner(true);
+    
 
     console.log(cards.length)
     // declare all issue count
@@ -61,7 +62,7 @@ const displayAll = (cards) => {
         const border = getBorder(card.status)
 
         allCard.innerHTML = `
-        <div class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
+        <div onclick="modal(${card.id})" class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
 
                     <!-- status and priority -->
                     <div class="flex justify-between">
@@ -91,8 +92,7 @@ const displayAll = (cards) => {
         `
 
         allSection.appendChild(allCard)
-        // call spinner
-        spinner(false);
+
 
     });
 }
@@ -129,7 +129,7 @@ const displayOpen = (cards) => {
         const border = getBorder(card.status)
 
         openCard.innerHTML = `
-        <div class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
+        <div onclick="modal(${card.id})" class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
 
                     <!-- status and priority -->
                     <div class="flex justify-between">
@@ -196,7 +196,7 @@ const displayClosed = (cards) => {
         const border = getBorder(card.status)
 
         closedCard.innerHTML = `
-        <div class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
+        <div onclick="modal(${card.id})" class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
 
                     <!-- status and priority -->
                     <div class="flex justify-between">
@@ -225,6 +225,8 @@ const displayClosed = (cards) => {
                 </div>
         `
 
+        // call spinner
+        spinner(false);
         closedSection.appendChild(closedCard)
 
     });
