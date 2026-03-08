@@ -101,6 +101,8 @@ const displayAll = (cards) => {
 // search function
 const search = () => {
 
+    tab('tab1');
+
     const searchValue = getValue('search-input').trim().toLowerCase();
     console.log(searchValue)
 
