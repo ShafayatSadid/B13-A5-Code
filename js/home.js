@@ -1,4 +1,16 @@
-console.log('home added')
+// spinner handler
+const spinner = (status) => {
+
+    if (status === true) {
+        document.getElementById('spinner').classList.remove('hidden');
+        document.getElementById('fullIssue').classList.add('hidden')
+    }
+    else {
+        document.getElementById('fullIssue').classList.remove('hidden');
+        document.getElementById('spinner').classList.add('hidden')
+    }
+}
+
 
 // load all card
 const loadAll = () => {
@@ -19,6 +31,9 @@ loadAll()
 // display all cards
 
 const displayAll = (cards) => {
+
+    // call spinner
+    spinner(true);
 
     console.log(cards.length)
     // declare all issue count
@@ -76,6 +91,8 @@ const displayAll = (cards) => {
         `
 
         allSection.appendChild(allCard)
+        // call spinner
+        spinner(false);
 
     });
 }
@@ -144,7 +161,7 @@ const displayOpen = (cards) => {
         openSection.appendChild(openCard)
 
     });
-    
+
 }
 
 
@@ -211,7 +228,7 @@ const displayClosed = (cards) => {
         closedSection.appendChild(closedCard)
 
     });
-    
+
 }
 
 
