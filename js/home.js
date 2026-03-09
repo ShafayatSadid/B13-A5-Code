@@ -24,6 +24,8 @@ const loadAll = () => {
             displayAll(cards.data);
             displayOpen(cards.data);
             displayClosed(cards.data);
+            // call spinner
+            spinner(false);
         })
 }
 
@@ -61,6 +63,11 @@ const displayAll = (cards) => {
         // each card border style based status
         const border = getBorder(card.status)
 
+        // date formatting
+        const date = new Date(card.createdAt);
+        const formateDate = date.toLocaleDateString("en-GB");
+
+
         allCard.innerHTML = `
         <div onclick="modal(${card.id})" class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
 
@@ -85,7 +92,7 @@ const displayAll = (cards) => {
 
                         <div>
                             <p class="text-[0.75rem] text-[#64748B]">#${card.id} ${card.author} </p>
-                            <p class="text-[0.75rem] text-[#64748B]">${card.createdAt} </p>
+                            <p class="text-[0.75rem] text-[#64748B]">${formateDate} </p>
                         </div>
                     </div>
                 </div>
@@ -111,9 +118,9 @@ const search = () => {
     fetch(url)
         .then(response => response.json())
         .then(words => {
-            
+
             const cards = words.data;
-            
+
 
             const searchCard = cards.filter(card => card.title.toLowerCase().includes(searchValue));
             console.log(searchCard)
@@ -150,8 +157,14 @@ const displayOpen = (cards) => {
 
         // call priority design function.
         const priorityData = getPriority(card.priority.toUpperCase())
+
         // each card border style based status
         const border = getBorder(card.status)
+
+        // date formatting
+        const date = new Date(card.createdAt);
+        const formateDate = date.toLocaleDateString("en-GB");
+
 
         openCard.innerHTML = `
         <div onclick="modal(${card.id})" class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
@@ -177,7 +190,7 @@ const displayOpen = (cards) => {
 
                         <div>
                             <p class="text-[0.75rem] text-[#64748B]">#${card.id} ${card.author} </p>
-                            <p class="text-[0.75rem] text-[#64748B]">${card.createdAt} </p>
+                            <p class="text-[0.75rem] text-[#64748B]">${formateDate} </p>
                         </div>
                     </div>
                 </div>
@@ -220,6 +233,10 @@ const displayClosed = (cards) => {
         // each card border style based status
         const border = getBorder(card.status)
 
+        // date formatting
+        const date = new Date(card.createdAt);
+        const formateDate = date.toLocaleDateString("en-GB");
+
         closedCard.innerHTML = `
         <div onclick="modal(${card.id})" class="card w-[256px] h-[290px] p-4 shadow-sm space-y-3 ${border}">
 
@@ -244,14 +261,13 @@ const displayClosed = (cards) => {
 
                         <div>
                             <p class="text-[0.75rem] text-[#64748B]">#${card.id} ${card.author} </p>
-                            <p class="text-[0.75rem] text-[#64748B]">${card.createdAt} </p>
+                            <p class="text-[0.75rem] text-[#64748B]">${formateDate} </p>
                         </div>
                     </div>
                 </div>
         `
 
-        // call spinner
-        spinner(false);
+
         closedSection.appendChild(closedCard)
 
     });

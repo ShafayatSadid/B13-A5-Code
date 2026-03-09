@@ -138,7 +138,11 @@ const displayModal = (card) => {
     // call priority design function.
     const priorityData = getPriority(card.priority.toUpperCase())
     // each card border style based status
-    const border = getBorder(card.status)
+    const border = getBorder(card.status);
+
+    // date formatting
+    const date = new Date(card.createdAt);
+    const formateDate = date.toLocaleDateString("en-GB");
 
     newModal.innerHTML = `
     
@@ -170,7 +174,7 @@ const displayModal = (card) => {
 
                             <div>
                                 <p class="text-[0.875rem] text-[#64748B]">Author: ${card.author.toUpperCase()} </p>
-                                <p class="text-[0.875rem] text-[#64748B]">Created At ${card.createdAt} </p>
+                                <p class="text-[0.875rem] text-[#64748B]">Created At: ${formateDate} </p>
                             </div>
                         </div>
 
