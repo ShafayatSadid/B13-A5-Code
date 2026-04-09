@@ -1,30 +1,54 @@
-1️⃣ What is the difference between var, let, and const?
+# GitHub Issues Tracker
 
-var: function scoped, can be re-declared, can be reassigned.
+## Project Overview
+This is a web application that allows users to track and manage GitHub issues. Users can log in to view all issues, filter by status (open or closed), and search for specific issues. The app fetches issue data from an external API and displays them in a user-friendly interface.
 
-let: block scoped, cannot be re-declared, can be reassigned.
+## Screenshot
+![Login Page](screencapture-github-tracker-pa5-netlify-app-2026-04-09-19_22_31.png)
+![Home Page](screencapture-github-tracker-pa5-netlify-app-home-html-2026-04-09-19_21_56.png)
 
-const: block scoped, cannot be re-declared, cannot be reassigned.
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- Tailwind CSS
+- DaisyUI
 
-2️⃣ What is the spread operator (...)?
+## Features
+- User authentication with login page
+- Display all GitHub issues fetched from API
+- Filter issues by status (all, open, closed)
+- Search functionality for issues
+- Priority-based styling for issues (high, medium, low)
+- Responsive design for mobile and desktop
 
-It is an operator that expands the elements of an iterable (array, object, string) into individual elements. It is used to copy an array or object and merge an array or object.
+## Dependencies
+- DaisyUI (for UI components)
+- Tailwind CSS (for styling)
+- Font Awesome (for icons)
+- Google Fonts (Geist font family)
 
-3️⃣ What is the difference between map(), filter(), and forEach()?
+## Run Locally
+Follow these steps to run the project on your local machine:
 
-map: It is used to run an operation on each element of an array and return a new array.
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   ```
 
-filter: It is used to select some elements from an array based on a condition and return them as a new array.
+2. Navigate to the project folder:
+   ```
+   cd B13-A5-Code
+   ```
 
-forEach: It does not return anything, It works like a loop and performs an operation on every element.
+3. Open the `index.html` file in your web browser to start the application.
 
-4️⃣ What is an arrow function?
+   Alternatively, you can serve the files using a local HTTP server. For example, using Python:
+   ```
+   python -m http.server 8000
+   ```
+   Then open `http://localhost:8000` in your browser.
 
-Is shorter way to write function in JavaScript, introduced in ES6.
-It uses the "=>" syntax, and the different between function and arrow function it's does not have own this.
-
-5️⃣ What are template literals?
-
-A modern way to handle strings in JavaScript introduced in ES6.
-Instead of using single quotes ('') of double quotes (""), backticks(``) are used here.
-Some special capability of template literals is that they can directly insert a variable or expression using this method "${}" inside a string, and take multiline just press Enter btn, and you can call a function, run math and ternary operator.
+## Links
+- Live Demo: https://github-issue-toast.netlify.app/
+- GitHub Repository: https://github.com/ShafayatSadid/B13-A5-Code
